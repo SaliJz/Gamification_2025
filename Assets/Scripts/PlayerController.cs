@@ -6,12 +6,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float lateralSpeed = 10f; // Velocidad de movimiento lateral
 
     private float screenWidthInWorldUnits;
+    private bool isSlowed = false;
+    private float slowFactor = 1f;
+    public int maxHealth = 10;
+    private int currentHealth;
 
     private void Start()
     {
         // Calcula los límites de la pantalla para que el jugador no se salga
         float playerHalfWidth = transform.localScale.x / 2f;
         screenWidthInWorldUnits = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x - playerHalfWidth;
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -44,5 +49,30 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Ave coleccionada!");
         }
+    }
+    public void ApplySlow(float factor)
+    {
+        slowFactor = Mathf.Clamp(factor, 0f, 1f);
+        isSlowed = true;
+    }
+    public void RemoveSlow()
+    {
+        slowFactor = 1f;
+        isSlowed = false;
+    }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("Jugador ha recibido " + damage + " de daño. Vida actual: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Debug.Log("¡El jugador ha muerto!");
+        Destroy(gameObject);
     }
 }
