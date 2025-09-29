@@ -67,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
                 if (removed == initialGround)
                 {
                     removed.SetActive(false);
-                    Debug.Log("[LevelGenerator] initialGround desactivado en vez de destruido.");
+                    Debug.Log("[LevelGenerator] initialGround desactivado.");
                 }
                 else
                 {
