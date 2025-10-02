@@ -119,6 +119,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &335239740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335239742}
+  - component: {fileID: 335239741}
+  m_Layer: 0
+  m_Name: HazardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &335239741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335239740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42fb5342c1b213459c56d8f13194c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPatterns:
+  - {fileID: 11400000, guid: afaad40c166558444a8c4e01aa9f7da3, type: 2}
+  - {fileID: 11400000, guid: bdbea98e9be9c4e4eb7ee1d31c0dede3, type: 2}
+  minTimeBetweenPatterns: 3
+  maxTimeBetweenPatterns: 6
+--- !u!4 &335239742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335239740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   canMoveX: 1
-  canMoveY: 0
-  canMoveDiagonal: 0
+  canMoveY: 1
+  canMoveDiagonal: 1
   maxHealth: 10
 --- !u!212 &988774064
 SpriteRenderer:
@@ -499,8 +548,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -994,7 +1043,7 @@ MonoBehaviour:
   speedIncreaseRate: 0.1
   maxFlockSize: 5
   scoreMultiplierPerBird: 0.2
-  flockSize: 1
+  flockSize: 5
   score: 0
   distanceTraveled: 0
   birdToSpawnPrefab: {fileID: 5598223330627366575, guid: 2a9f0c03e13a3d944ae5abf114418c9f, type: 3}
@@ -1145,6 +1194,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1311872854}
   - {fileID: 2047094689}
+  - {fileID: 335239742}
   - {fileID: 1607206069}
   - {fileID: 988774065}
   - {fileID: 674986924}

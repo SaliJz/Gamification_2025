@@ -107,6 +107,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //if (GameManager.Instance.FlockSize > 1)
+        //{
+        //    GameManager.Instance.FlockSize--;
+        //    return;
+        //}
+
         currentHealth -= damage;
         Debug.Log("Jugador ha recibido " + damage + " de daño. Vida actual: " + currentHealth);
 
@@ -121,4 +127,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("¡El jugador ha muerto!");
         Destroy(gameObject);
     }
+
+
 }

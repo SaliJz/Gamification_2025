@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour
     public float DistanceTraveled => distanceTraveled;
     public int Score => Mathf.FloorToInt(score);
 
+    public int FlockSize
+    {
+        get {  return flockSize; }
+        set {  flockSize = value; }
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -86,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTookDamage()
     {
-        if (flockSize > 0)
+        if (flockSize > 1)
         {
             flockSize--;
             // Añadir un efecto visual/sonido de impacto
