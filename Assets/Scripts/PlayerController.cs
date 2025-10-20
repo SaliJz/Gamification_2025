@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10;
     private int currentHealth;
     private float baseSpeed = 0;
+
+    public string gameOverSceneName = "GameOver";
 
     private void Start()
     {
@@ -126,6 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("¡El jugador ha muerto!");
         Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 
 
