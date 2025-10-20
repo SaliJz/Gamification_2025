@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -110,6 +109,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (currentHealth <= 0) return;
+
         //if (GameManager.Instance.FlockSize > 1)
         //{
         //    GameManager.Instance.FlockSize--;
@@ -121,16 +122,15 @@ public class PlayerController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
         Debug.Log("¡El jugador ha muerto!");
-        Destroy(gameObject);
-        SceneManager.LoadScene("GameOver");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(gameOverSceneName);
+        gameObject.SetActive(false);
     }
-
-
 }

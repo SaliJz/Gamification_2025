@@ -10,12 +10,12 @@ public class SlowArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController playerController = other.GetComponent<PlayerController>();
+            var playerController = other.GetComponent<PlayerController>();
 
             if (playerController != null)
             {
-                playerController.ApplySlow(slowFactor);
                 Debug.Log("Jugador ha entrado en la zona lenta. Velocidad reducida.");
+                playerController.ApplySlow(slowFactor);
                 playerController.TakeDamage(damageOnEnter);
             }
         }
@@ -25,12 +25,12 @@ public class SlowArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController playerController = other.GetComponent<PlayerController>();
+            var playerController = other.GetComponent<PlayerController>();
 
             if (playerController != null)
             {
-                playerController.RemoveSlow();
                 Debug.Log("Jugador ha salido de la zona lenta. Velocidad restaurada.");
+                playerController.RemoveSlow();
             }
         }
     }
