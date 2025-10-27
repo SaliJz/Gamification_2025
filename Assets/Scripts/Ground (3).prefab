@@ -102,3 +102,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distanceToDestroy: -10
   isDestructible: 0
+  ignoreScroll: 1

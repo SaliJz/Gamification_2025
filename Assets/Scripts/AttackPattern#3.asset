@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8421bcd244c99c24291723aeec82220e, type: 3}
   m_Name: AttackPattern#3
   m_EditorClassIdentifier: 
-  hazardPrefab: {fileID: 0}
-  patternType: 0
-  spawnOrigin: 3
+  hazardPrefab: {fileID: 4764529851165567879, guid: 97438f1830806744a9e0a49071fdb75c, type: 3}
+  patternType: 1
+  spawnOrigin: 0
   baseAngle: 180
   aimAtPlayer: 1
   projectileSpeed: 8
-  movementType: 1
+  movementType: 0
   waveAmplitude: 2
   waveFrequency: 4
   projectileCount: 8

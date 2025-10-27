@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hazardPrefab: {fileID: 4764529851165567879, guid: 97438f1830806744a9e0a49071fdb75c, type: 3}
   patternType: 1
-  spawnOrigin: 3
-  baseAngle: 270
-  aimAtPlayer: 0
+  spawnOrigin: 0
+  baseAngle: 90
+  aimAtPlayer: 1
   projectileSpeed: 8
-  movementType: 1
+  movementType: 0
   waveAmplitude: 1
   waveFrequency: 2
   projectileCount: 8
-  spreadAngle: 360
+  spreadAngle: 270
   duration: 3
   fireRate: 5
   spinSpeed: 0

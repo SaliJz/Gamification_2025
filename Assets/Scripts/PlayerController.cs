@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     public bool canMoveY = false;
     public bool canMoveDiagonal = false;
 
+    [Header("Control Móvil")]
+    [SerializeField] private bool useMobileInput = true;
+    [SerializeField] private Joystick joystick;
+
     private Vector2 screenBoundsMin;
     private Vector2 screenBoundsMax;
     private float playerWidth;
@@ -39,21 +43,27 @@ public class PlayerController : MonoBehaviour
         }
         currentHealth = maxHealth;
         baseSpeed = speed;
+
+        // Detectar automáticamente si es dispositivo móvil
+#if UNITY_ANDROID || UNITY_IOS
+        useMobileInput = true;
+#else
+        useMobileInput = false;
+#endif
     }
 
     private void Update()
     {
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
+        Vector2 inputDirection = GetInputDirection();
 
         Vector2 moveDirection = Vector2.zero;
         if (canMoveX)
         {
-            moveDirection.x = inputX;
+            moveDirection.x = inputDirection.x;
         }
         if (canMoveY)
         {
-            moveDirection.y = inputY;
+            moveDirection.y = inputDirection.y;
         }
 
         if (!canMoveDiagonal && moveDirection.x != 0 && moveDirection.y != 0)
@@ -73,6 +83,21 @@ public class PlayerController : MonoBehaviour
         transform.position = clampedPosition;
     }
 
+    private Vector2 GetInputDirection()
+    {
+        // Usar joystick virtual en móvil o cuando esté habilitado
+        if (useMobileInput && joystick != null)
+        {
+            return new Vector2(joystick.Horizontal, joystick.Vertical);
+        }
+        // Fallback a teclado/gamepad para testing en editor
+        else
+        {
+            float inputX = Input.GetAxisRaw("Horizontal");
+            float inputY = Input.GetAxisRaw("Vertical");
+            return new Vector2(inputX, inputY);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
