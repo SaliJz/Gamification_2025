@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335239742}
   - component: {fileID: 335239741}
+  - component: {fileID: 335239743}
   m_Layer: 0
   m_Name: HazardManager
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335239740}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a42fb5342c1b213459c56d8f13194c35, type: 3}
   m_Name: 
@@ -169,6 +170,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &335239743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335239740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ed92e615d715a428cfd1d16d7c7b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardConfigs:
+  - {fileID: 11400000, guid: 05e0b584a39d0dc4291f1311efd21fce, type: 2}
+  - {fileID: 11400000, guid: 7da721e84fbdb69438d7bda99b1d7c54, type: 2}
+  - {fileID: 11400000, guid: a237412578754ec4ebb4c844d8cb5246, type: 2}
+  spawnHazards: 1
+  attackPatterns: []
+  useLegacyPatterns: 0
+  minTimeBetweenPatterns: 3
+  maxTimeBetweenPatterns: 6
+  enableDifficultyScaling: 1
+  difficultyIncreaseRate: 0.1
+  minSpawnInterval: 1
+  hazardContainer: {fileID: 335239742}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

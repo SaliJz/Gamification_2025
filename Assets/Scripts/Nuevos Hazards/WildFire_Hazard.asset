@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6df9fd62d506a04eab09c34a74c5fd1, type: 3}
+  m_Name: WildFire_Hazard
+  m_EditorClassIdentifier: 
+  hazardType: 2
+  hazardPrefab: {fileID: 2137016577145196782, guid: f158b293a9c5d624aa0ece476c454f58, type: 3}
+  allowedSpawnSides: 00000000
+  spawnChance: 0.5
+  acidRainPattern: 0
+  toxicCloudPattern: 0
+  wildfirePattern: 0
+  minTimeBetweenSpawns: 5
+  maxTimeBetweenSpawns: 10
