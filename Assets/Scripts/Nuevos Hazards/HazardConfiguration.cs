@@ -27,6 +27,6 @@ public class HazardConfiguration : ScriptableObject
     public WildfirePattern wildfirePattern;
 
     [Header("Timing")]
-    public float minTimeBetweenSpawns = 5f;
-    public float maxTimeBetweenSpawns = 10f;
+    public float minTimeBetweenSpawns = 5f; // Tiempo minimo entre spawns
+    public float maxTimeBetweenSpawns = 10f; // Tiempo maximo entre spawns
 }

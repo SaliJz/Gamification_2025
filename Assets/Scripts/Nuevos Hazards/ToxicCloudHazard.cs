@@ -8,13 +8,14 @@ public class ToxicCloudHazard : BaseHazard
 {
     [Header("Toxic Cloud Configuration")]
     [SerializeField] private ToxicCloudPattern pattern = ToxicCloudPattern.LinearDrift;
-    [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float zigzagAmplitude = 2f;
     [SerializeField] private float zigzagFrequency = 1f;
     [SerializeField] private float orbitRadius = 3f;
     [SerializeField] private float orbitSpeed = 1f;
     [SerializeField] private bool continuousDamage = true;
     [SerializeField] private float damageInterval = 0.5f;
+
+    private float currentMoveSpeed;
 
     private Vector2 moveDirection;
     private Vector2 initialPosition;
@@ -29,11 +30,29 @@ public class ToxicCloudHazard : BaseHazard
         initialPosition = position;
         SetupMovementDirection(spawnSide);
 
+        // Calcular velocidad escalada según dificultad actual
+        CalculateScaledValues();
+
         // Para órbita circular, establecer centro
         if (pattern == ToxicCloudPattern.CircularOrbit)
         {
             orbitCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         }
+    }
+
+    private void CalculateScaledValues()
+    {
+        float difficulty = DifficultyManager.Instance.CurrentDifficulty;
+        DifficultyScaling scaling = DifficultyManager.Instance.scaling;
+
+        // Escalar velocidad: 3 => 16
+        currentMoveSpeed = DifficultyScaling.Lerp(
+            scaling.toxicCloudMinSpeed,
+            scaling.toxicCloudMaxSpeed,
+            difficulty
+        );
+
+        Debug.Log($"[ToxicCloud] Dificultad: {difficulty:F2}x | Velocidad: {currentMoveSpeed:F2}");
     }
 
     private void SetupMovementDirection(SpawnSide side)
@@ -87,7 +106,7 @@ public class ToxicCloudHazard : BaseHazard
 
     private void UpdateLinearMovement()
     {
-        transform.position += (Vector3)(moveDirection * moveSpeed * Time.deltaTime);
+        transform.position += (Vector3)(moveDirection * currentMoveSpeed * Time.deltaTime);
     }
 
     private void UpdateZigzagMovement()
@@ -95,7 +114,7 @@ public class ToxicCloudHazard : BaseHazard
         Vector2 perpendicular = new Vector2(-moveDirection.y, moveDirection.x);
         float zigzag = Mathf.Sin(movementTime * zigzagFrequency * Mathf.PI * 2) * zigzagAmplitude;
 
-        Vector2 movement = moveDirection * moveSpeed * Time.deltaTime;
+        Vector2 movement = moveDirection * currentMoveSpeed * Time.deltaTime;
         movement += perpendicular * zigzag * Time.deltaTime;
 
         transform.position += (Vector3)movement;

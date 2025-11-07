@@ -10,10 +10,11 @@ public class WildfireHazard : BaseHazard
     [SerializeField] private GameObject fireballPrefab;
     [SerializeField] private float travelSpeed = 6f;
     [SerializeField] private float explosionDelay = 1f;
-    [SerializeField] private int explosionProjectileCount = 8;
-    [SerializeField] private float explosionProjectileSpeed = 5f;
     [SerializeField] private float chainExplosionInterval = 0.5f;
     [SerializeField] private int chainExplosionCount = 3;
+
+    private int currentExplosionProjectileCount;
+    private float currentExplosionProjectileSpeed;
 
     private Vector2 travelDirection;
     private bool hasExploded = false;
@@ -24,6 +25,31 @@ public class WildfireHazard : BaseHazard
     {
         base.Initialize(position, spawnSide, player);
         SetupTravelDirection(spawnSide);
+
+        // Calcular valores escalados según dificultad actual
+        CalculateScaledValues();
+    }
+
+    private void CalculateScaledValues()
+    {
+        float difficulty = DifficultyManager.Instance.CurrentDifficulty;
+        DifficultyScaling scaling = DifficultyManager.Instance.scaling;
+
+        // Escalar número de proyectiles: 4 => 16
+        currentExplosionProjectileCount = DifficultyScaling.LerpInt(
+            scaling.wildfireMinProjectiles,
+            scaling.wildfireMaxProjectiles,
+            difficulty
+        );
+
+        // Escalar velocidad de proyectiles: 3 => 12
+        currentExplosionProjectileSpeed = DifficultyScaling.Lerp(
+            scaling.wildfireMinSpeed,
+            scaling.wildfireMaxSpeed,
+            difficulty
+        );
+
+        Debug.Log($"[Wildfire] Dificultad: {difficulty:F2}x | Proyectiles: {currentExplosionProjectileCount} | Velocidad: {currentExplosionProjectileSpeed:F2}");
     }
 
     private void SetupTravelDirection(SpawnSide side)
@@ -119,10 +145,10 @@ public class WildfireHazard : BaseHazard
     {
         hasExploded = true;
 
-        // Explotar en todas direcciones (círculo completo)
-        float angleStep = 360f / explosionProjectileCount;
+        // Explotar en círculo completo con el número escalado de proyectiles
+        float angleStep = 360f / currentExplosionProjectileCount;
 
-        for (int i = 0; i < explosionProjectileCount; i++)
+        for (int i = 0; i < currentExplosionProjectileCount; i++)
         {
             float angle = i * angleStep;
             Vector2 direction = new Vector2(
@@ -169,7 +195,7 @@ public class WildfireHazard : BaseHazard
         HazardProjectile proj = projectile.GetComponent<HazardProjectile>();
         if (proj != null)
         {
-            proj.Initialize(direction, explosionProjectileSpeed, MovementType.Linear);
+            proj.Initialize(direction, currentExplosionProjectileSpeed, MovementType.Linear);
         }
     }
 

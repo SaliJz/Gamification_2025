@@ -157,5 +157,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("¡El jugador ha muerto!");
         UnityEngine.SceneManagement.SceneManager.LoadScene(gameOverSceneName);
         gameObject.SetActive(false);
+        DifficultyManager.Instance?.ResetDifficulty();
     }
 }

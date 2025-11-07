@@ -10,14 +10,15 @@ public class AcidRainHazard : BaseHazard
     [SerializeField] private AcidRainPattern pattern = AcidRainPattern.SteadyDrizzle;
     [SerializeField] private GameObject dropletPrefab;
     [SerializeField] private float dropSpeed = 5f;
-    [SerializeField] private float dropSpawnRate = 0.2f;
-    [SerializeField] private int dropletsPerSpawn = 1;
     [SerializeField] private float cloudDriftSpeed = 0.5f;
     [SerializeField] private float cloudDriftRange = 2f;
 
     [Header("Entry Behavior")]
     [SerializeField] private float yTargetOffsetFromTop = 1.0f; // Qué tan abajo del borde superior quedará
     [SerializeField] private float entrySpeed = 3f; // Velocidad de descenso
+
+    private int currentMaxDroplets;
+    private float currentDropFrequency;
 
     private Vector2 initialPosition; // La posición después de descender
     private float nextDropTime = 0f;
@@ -33,7 +34,32 @@ public class AcidRainHazard : BaseHazard
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
+        // Calcular valores escalados según dificultad actual
+        CalculateScaledValues();
+
         StartCoroutine(EnterAndActivate(position));
+    }
+
+    private void CalculateScaledValues()
+    {
+        float difficulty = DifficultyManager.Instance.CurrentDifficulty;
+        DifficultyScaling scaling = DifficultyManager.Instance.scaling;
+
+        // Escalar número de gotas: 4 => 32
+        currentMaxDroplets = DifficultyScaling.LerpInt(
+            scaling.acidRainMinDroplets,
+            scaling.acidRainMaxDroplets,
+            difficulty
+        );
+
+        // Escalar frecuencia: 1.0s => 0.5s (menor = más rápido)
+        currentDropFrequency = DifficultyScaling.Lerp(
+            scaling.acidRainMinFrequency,
+            scaling.acidRainMaxFrequency,
+            difficulty
+        );
+
+        Debug.Log($"[AcidRain] Dificultad: {difficulty:F2}x | Gotas: {currentMaxDroplets} | Frecuencia: {currentDropFrequency:F2}s");
     }
 
     /// <summary>
@@ -74,7 +100,7 @@ public class AcidRainHazard : BaseHazard
         if (Time.time >= nextDropTime)
         {
             SpawnDroplets();
-            nextDropTime = Time.time + dropSpawnRate;
+            nextDropTime = Time.time + currentDropFrequency;
         }
     }
 
@@ -105,8 +131,11 @@ public class AcidRainHazard : BaseHazard
 
     private void SpawnSteadyDrizzle()
     {
+        // Goteo constante: 25% de las gotas máximas
+        int dropletsToSpawn = Mathf.Max(1, currentMaxDroplets / 4);
+
         // Gotas espaciadas uniformemente
-        for (int i = 0; i < dropletsPerSpawn; i++)
+        for (int i = 0; i < dropletsToSpawn; i++)
         {
             float xOffset = Random.Range(-1f, 1f);
             Vector2 spawnPos = (Vector2)transform.position + new Vector2(xOffset, 0);
@@ -116,9 +145,10 @@ public class AcidRainHazard : BaseHazard
 
     private void SpawnIntensePour()
     {
-        // Ráfaga intensa de gotas
-        int burstCount = dropletsPerSpawn * 3;
-        for (int i = 0; i < burstCount; i++)
+        // Lluvia intensa: 100% de las gotas máximas
+        int dropletsToSpawn = currentMaxDroplets;
+
+        for (int i = 0; i < dropletsToSpawn; i++)
         {
             float xOffset = Random.Range(-2f, 2f);
             Vector2 spawnPos = (Vector2)transform.position + new Vector2(xOffset, 0);
@@ -128,8 +158,9 @@ public class AcidRainHazard : BaseHazard
 
     private void SpawnWavingCurtain()
     {
-        // Cortina ondulante
-        int curtainDrops = 5;
+        // Cortina ondulante: 50% de las gotas máximas
+        int curtainDrops = Mathf.Max(5, currentMaxDroplets / 2);
+
         for (int i = 0; i < curtainDrops; i++)
         {
             float t = (float)i / curtainDrops;
