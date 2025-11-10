@@ -112,6 +112,12 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Ave coleccionada!");
         }
+        else if (other.CompareTag("grillo"))
+        {
+            currentHealth ++;
+            Destroy(other.gameObject);
+            Debug.Log("¡Grillo coleccionado! Vida actual: ");
+        }
     }
 
     public void ApplySlow(float factor)
