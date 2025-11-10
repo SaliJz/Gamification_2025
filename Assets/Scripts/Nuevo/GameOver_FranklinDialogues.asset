@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c97c2bd1638024caa529d889ebd724, type: 3}
+  m_Name: GameOver_FranklinDialogues
+  m_EditorClassIdentifier: 
+  dialogueSetName: Game Over - Franklin
+  dialogueVariants:
+  - "La contaminaci\xF3n nos afecta mucho. Las nubes t\xF3xicas vienen de las f\xE1bricas."
+  - "La contaminaci\xF3n lum\xEDnica confunde nuestro vuelo y desata tormentas que
+    nos lastiman."
+  - "Los incendios forestales destruyen nuestros h\xE1bitats de anidaci\xF3n."
+  - "\xA1Pero no te rindas! Cada intento cuenta para aprender a protegernos."

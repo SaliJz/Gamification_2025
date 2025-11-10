@@ -3,36 +3,42 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    [Header("Configuración de Terreno")]
+    [Header("Configuracion de Terreno")]
     [Tooltip("Prefabs de terreno (usa prefabs, no el initialGround de la escena)")]
     [SerializeField] private List<GameObject> groundPrefabs;
-    [Tooltip("GameObject ya colocado en la escena que sirve como terreno inicial (no será destruido).")]
+    [Tooltip("GameObject ya colocado en la escena que sirve como terreno inicial (no sera destruido).")]
     [SerializeField] private GameObject initialGround;
-    [Tooltip("Distancia mínima entre el borde superior de la cámara y el último terreno")]
+    [Tooltip("Distancia minima entre el borde superior de la camara y el ultimo terreno")]
     [SerializeField] private float spawnDistanceAhead = 30f;
     [Tooltip("Espacio vertical entre terrenos consecutivos")]
     [SerializeField] private float verticalSpacing = 0f;
-    [Tooltip("Margen por debajo de la cámara para destruir terrenos antiguos")]
+    [Tooltip("Margen por debajo de la camara para destruir terrenos antiguos")]
     [SerializeField] private float destroyMargin = 10f;
 
     private List<GameObject> activeGrounds = new List<GameObject>();
     private float nextSpawnY;
     private float spawnX;
+    private bool isInitialized = false;
 
     private void Start()
     {
         if (groundPrefabs.Count == 0)
         {
-            Debug.LogError("No hay prefabs de terreno asignados en el LevelGenerator.");
+            Debug.LogError("[LevelGenerator] No hay prefabs de terreno asignados.");
             return;
         }
 
         if (initialGround == null)
         {
-            Debug.LogError("Debes asignar el terreno inicial en LevelGenerator.");
+            Debug.LogError("[LevelGenerator] Debes asignar el terreno inicial.");
             return;
         }
 
+        InitializeGenerator();
+    }
+
+    private void InitializeGenerator()
+    {
         ScrollableObject scrollComponent = initialGround.GetComponent<ScrollableObject>();
         if (scrollComponent != null)
         {
@@ -47,26 +53,33 @@ public class LevelGenerator : MonoBehaviour
         nextSpawnY = initialGround.transform.position.y + (initialHeight / 2f) + verticalSpacing;
 
         GenerateTerrainAhead();
+        isInitialized = true;
     }
 
     private void Update()
     {
-        // Mueve todos los terrenos activos hacia abajo
+        if (!isInitialized) return;
+
+        if (GameManager.Instance == null) return;
+
+        GameState currentState = GameManager.Instance.CurrentState;
+        if (currentState != GameState.Playing && currentState != GameState.Tutorial)
+        {
+            return;
+        }
+
         MoveAllTerrain();
-
-        // Genera nuevo terreno si es necesario
         GenerateTerrainAhead();
-
-        // Limpia terrenos antiguos que ya no son visibles
         CleanupOldTerrain();
     }
 
     private void MoveAllTerrain()
     {
+        if (GameManager.Instance == null) return;
+
         float speed = GameManager.Instance.CurrentScrollSpeed;
         float movement = speed * Time.deltaTime;
 
-        // Mueve todos los terrenos activos
         foreach (GameObject ground in activeGrounds)
         {
             if (ground != null)
@@ -75,7 +88,6 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        // Ajusta también la posición del próximo spawn
         nextSpawnY -= movement;
     }
 
@@ -83,7 +95,6 @@ public class LevelGenerator : MonoBehaviour
     {
         float cameraTopY = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y;
 
-        // Genera terreno mientras el próximo punto de spawn esté dentro del rango
         while (nextSpawnY < cameraTopY + spawnDistanceAhead)
         {
             SpawnGround();
@@ -96,7 +107,6 @@ public class LevelGenerator : MonoBehaviour
 
         float cameraBottomY = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).y;
 
-        // Revisa todos los terrenos desde el más antiguo
         for (int i = activeGrounds.Count - 1; i >= 0; i--)
         {
             GameObject ground = activeGrounds[i];
@@ -105,7 +115,6 @@ public class LevelGenerator : MonoBehaviour
             float groundHeight = GetHeight(ground);
             float groundTopEdge = ground.transform.position.y + (groundHeight / 2f);
 
-            // Si el borde superior está por debajo del límite, lo destruye
             if (groundTopEdge < cameraBottomY - destroyMargin)
             {
                 activeGrounds.RemoveAt(i);
@@ -125,19 +134,14 @@ public class LevelGenerator : MonoBehaviour
 
     private void SpawnGround()
     {
-        // Elige prefab aleatorio
         int randomIndex = Random.Range(0, groundPrefabs.Count);
         GameObject prefab = groundPrefabs[randomIndex];
 
-        // Calcula altura del nuevo prefab
         float newHeight = GetPrefabHeight(prefab);
-
-        // Posiciona en nextSpawnY
         Vector3 spawnPosition = new Vector3(spawnX, nextSpawnY + (newHeight / 2f), 0f);
 
         GameObject newGround = Instantiate(prefab, spawnPosition, Quaternion.identity);
 
-        // Desactiva ScrollableObject para evitar movimiento doble
         ScrollableObject scrollComponent = newGround.GetComponent<ScrollableObject>();
         if (scrollComponent != null)
         {
@@ -145,8 +149,6 @@ public class LevelGenerator : MonoBehaviour
         }
 
         activeGrounds.Add(newGround);
-
-        // Actualiza la posición del siguiente spawn
         nextSpawnY += newHeight + verticalSpacing;
     }
 
@@ -177,4 +179,26 @@ public class LevelGenerator : MonoBehaviour
 
         return 1f;
     }
+
+    #region Public Methods
+    public void ResetGenerator()
+    {
+        // Limpiar terrenos activos excepto el inicial
+        for (int i = activeGrounds.Count - 1; i >= 0; i--)
+        {
+            GameObject ground = activeGrounds[i];
+            if (ground != null && ground != initialGround)
+            {
+                Destroy(ground);
+            }
+        }
+
+        activeGrounds.Clear();
+
+        if (initialGround != null)
+        {
+            InitializeGenerator();
+        }
+    }
+    #endregion
 }

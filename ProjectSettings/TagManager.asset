@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hazard
   - CollectibleBird
+  - Insect
+  - MagnetBird
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Insect
   - 
   - 
   - 

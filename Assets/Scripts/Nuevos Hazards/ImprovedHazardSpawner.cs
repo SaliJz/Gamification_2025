@@ -24,7 +24,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
     [SerializeField] private float minSpawnInterval = 1f;
 
     [Header("References")]
-    [SerializeField] private Transform hazardContainer; // Contenedor para organizar hazards en la jerarquía
+    [SerializeField] private Transform hazardContainer; // Contenedor para organizar hazards en la jerarquia
 
     private Transform playerTransform;
     private Camera mainCamera;
@@ -32,7 +32,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
     private float currentDifficultyMultiplier = 1f;
     private float gameTime = 0f;
 
-    // Pooling básico
+    // Pooling basico
     private Dictionary<HazardType, Queue<GameObject>> hazardPools = new Dictionary<HazardType, Queue<GameObject>>();
 
     #region Initialization
@@ -94,7 +94,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
     {
         while (true)
         {
-            // Seleccionar configuración basada en probabilidades
+            // Seleccionar configuracion basada en probabilidades
             HazardConfiguration config = SelectHazardConfiguration();
 
             if (config != null)
@@ -138,20 +138,20 @@ public class ImprovedHazardSpawner : MonoBehaviour
         // Seleccionar lado de spawn
         SpawnSide spawnSide = config.allowedSpawnSides[Random.Range(0, config.allowedSpawnSides.Count)];
 
-        // Calcular posición de spawn
+        // Calcular posicion de spawn
         Vector2 spawnPosition = GetHazardSpawnPosition(spawnSide, config.hazardType);
 
         // Instanciar hazard
         GameObject hazardObj = Instantiate(config.hazardPrefab, spawnPosition, Quaternion.identity, hazardContainer);
 
-        // Inicializar según tipo
+        // Inicializar segun tipo
         BaseHazard hazard = hazardObj.GetComponent<BaseHazard>();
         if (hazard != null)
         {
             hazard.Initialize(spawnPosition, spawnSide, playerTransform);
         }
 
-        // Configurar patrón específico
+        // Configurar patron especifico
         ConfigureHazardPattern(hazardObj, config);
     }
 
@@ -163,7 +163,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
                 var acidRain = hazardObj.GetComponent<AcidRainHazard>();
                 if (acidRain != null)
                 {
-                    // El patrón se configura en el inspector del prefab
+                    // El patron se configura en el inspector del prefab
                     // o mediante reflection si es necesario
                 }
                 break;
@@ -172,7 +172,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
                 var toxicCloud = hazardObj.GetComponent<ToxicCloudHazard>();
                 if (toxicCloud != null)
                 {
-                    // Configuración adicional si es necesario
+                    // Configuracion adicional si es necesario
                 }
                 break;
 
@@ -180,7 +180,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
                 var wildfire = hazardObj.GetComponent<WildfireHazard>();
                 if (wildfire != null)
                 {
-                    // Configuración adicional si es necesario
+                    // Configuracion adicional si es necesario
                 }
                 break;
         }
@@ -222,7 +222,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
                 break;
         }
 
-        // Ajustes específicos por tipo
+        // Ajustes especificos por tipo
         switch (type)
         {
             case HazardType.AcidRain:
@@ -234,7 +234,7 @@ public class ImprovedHazardSpawner : MonoBehaviour
                 break;
 
             case HazardType.ToxicCloud:
-                // Las nubes tóxicas pueden aparecer en cualquier borde
+                // Las nubes toxicas pueden aparecer en cualquier borde
                 break;
 
             case HazardType.Wildfire:

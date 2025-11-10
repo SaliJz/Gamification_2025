@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8730101845776077543}
   - component: {fileID: 8001753377437461692}
-  - component: {fileID: 9185394734201034490}
   - component: {fileID: 2121972326879009096}
   - component: {fileID: 1838938254419312981}
   - component: {fileID: 2819508836173346339}
+  - component: {fileID: 7260420969079200158}
   m_Layer: 0
   m_Name: AcidRain_Prefab
   m_TagString: Hazard
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9185394734201034490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452718712977919726}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d577a6640245364489891d9b07e985a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowFactor: 0.5
-  damageOnEnter: 1
 --- !u!114 &2121972326879009096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,9 +174,21 @@ MonoBehaviour:
   pattern: 0
   dropletPrefab: {fileID: 4764529851165567879, guid: 97438f1830806744a9e0a49071fdb75c, type: 3}
   dropSpeed: 5
-  dropSpawnRate: 0.2
-  dropletsPerSpawn: 1
   cloudDriftSpeed: 0.5
   cloudDriftRange: 2
   yTargetOffsetFromTop: 2
   entrySpeed: 3
+--- !u!114 &7260420969079200158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8452718712977919726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff14452cb641b46a3e866bc8bb6d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  damageOnEnter: 1

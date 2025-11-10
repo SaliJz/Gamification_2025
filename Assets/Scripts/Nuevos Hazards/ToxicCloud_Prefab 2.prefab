@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 679124063585177979}
   - component: {fileID: 952921744838735243}
-  - component: {fileID: 6883287037276809813}
   - component: {fileID: 1241514254576854755}
   - component: {fileID: 1297202586844261174}
   - component: {fileID: 8834529647097559142}
+  - component: {fileID: 7909735606653572345}
   m_Layer: 0
   m_Name: ToxicCloud_Prefab 2
   m_TagString: Hazard
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6883287037276809813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3804478767220637158}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d577a6640245364489891d9b07e985a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowFactor: 0.5
-  damageOnEnter: 1
 --- !u!114 &1241514254576854755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +178,17 @@ MonoBehaviour:
   orbitSpeed: 1
   continuousDamage: 1
   damageInterval: 0.5
+--- !u!114 &7909735606653572345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804478767220637158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff14452cb641b46a3e866bc8bb6d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  damageOnEnter: 1

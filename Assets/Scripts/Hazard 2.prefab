@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1332930207416786543}
   - component: {fileID: 1821471425176261088}
   - component: {fileID: 4364471163276903165}
-  - component: {fileID: 557777139562833564}
   - component: {fileID: 9133369297916616130}
+  - component: {fileID: 153367001473547932}
   m_Layer: 0
   m_Name: Hazard 2
   m_TagString: Hazard
@@ -136,20 +136,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &557777139562833564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4764529851165567879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d577a6640245364489891d9b07e985a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowFactor: 0.5
-  damageOnEnter: 1
 --- !u!114 &9133369297916616130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff278473e3cc8bf40b1f8bb0f9ca07f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &153367001473547932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4764529851165567879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff14452cb641b46a3e866bc8bb6d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  damageOnEnter: 1

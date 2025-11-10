@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 721253882529369333}
   - component: {fileID: 9031116932675044484}
   - component: {fileID: 4666584574734572155}
-  - component: {fileID: 7573218291454114026}
   - component: {fileID: 921240189493295154}
+  - component: {fileID: 896301154911554002}
   m_Layer: 0
   m_Name: Fireball_Prefab
   m_TagString: Hazard
@@ -126,20 +126,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.46875
---- !u!114 &7573218291454114026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579549487181700656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d577a6640245364489891d9b07e985a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowFactor: 0.5
-  damageOnEnter: 1
 --- !u!114 &921240189493295154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff278473e3cc8bf40b1f8bb0f9ca07f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &896301154911554002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579549487181700656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff14452cb641b46a3e866bc8bb6d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  damageOnEnter: 1

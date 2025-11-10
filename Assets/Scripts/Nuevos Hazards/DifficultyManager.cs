@@ -78,13 +78,13 @@ public class DifficultyManager : MonoBehaviour
     [Tooltip("Incremento de dificultad por minuto de juego")]
     [SerializeField] private float difficultyIncreaseRate = 0.1f;
 
-    [Tooltip("Intervalo de actualización en segundos")]
+    [Tooltip("Intervalo de actualizaci?n en segundos")]
     [SerializeField] private float updateInterval = 10f;
 
-    [Tooltip("Dificultad mínima (inicio del juego)")]
+    [Tooltip("Dificultad m?nima (inicio del juego)")]
     [SerializeField] private float minDifficulty = 1f;
 
-    [Tooltip("Dificultad máxima (cap)")]
+    [Tooltip("Dificultad m?xima (cap)")]
     [SerializeField] private float maxDifficulty = 3f;
 
     [Header("Scaling Configuration")]
@@ -130,7 +130,7 @@ public class DifficultyManager : MonoBehaviour
             {
                 gameTime += updateInterval;
 
-                // Fórmula: dificultad = min + (tiempo * rate / 60)
+                // F?rmula: dificultad = min + (tiempo * rate / 60)
                 currentDifficulty = minDifficulty + (gameTime * difficultyIncreaseRate / 60f);
                 currentDifficulty = Mathf.Clamp(currentDifficulty, minDifficulty, maxDifficulty);
 

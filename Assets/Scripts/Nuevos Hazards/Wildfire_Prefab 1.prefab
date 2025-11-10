@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1774445199057995643}
   - component: {fileID: 1108415886512851010}
   - component: {fileID: 5909837121965454504}
-  - component: {fileID: 9212249170160865774}
   - component: {fileID: 338177674718890311}
   - component: {fileID: 1165404368617547475}
+  - component: {fileID: 516990347270861448}
   m_Layer: 0
   m_Name: Wildfire_Prefab 1
   m_TagString: Hazard
@@ -127,20 +127,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.46875
---- !u!114 &9212249170160865774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137016577145196782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d577a6640245364489891d9b07e985a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowFactor: 0.5
-  damageOnEnter: 1
 --- !u!114 &338177674718890311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +167,17 @@ MonoBehaviour:
   explosionDelay: 1
   chainExplosionInterval: 0.5
   chainExplosionCount: 3
+--- !u!114 &516990347270861448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137016577145196782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff14452cb641b46a3e866bc8bb6d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowFactor: 0.5
+  damageOnEnter: 1

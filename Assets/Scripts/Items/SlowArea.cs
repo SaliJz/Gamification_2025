@@ -3,7 +3,7 @@ using UnityEngine;
 public class SlowArea : MonoBehaviour
 {
     [Range(0.01f, 1f)]
-    public float slowFactor = 0.5f;
+    public float slowFactor = 0.5f; // Factor de reducción de velocidad (0.5 = 50% de velocidad)
     public int damageOnEnter = 1;
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202982363327891246}
   - component: {fileID: 4096811496413846147}
-  - component: {fileID: 2898690598363637987}
+  - component: {fileID: 5034404242296080653}
   m_Layer: 0
   m_Name: Ground (1)
   m_TagString: Untagged
@@ -88,18 +88,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2898690598363637987
+--- !u!114 &5034404242296080653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8480306087313374186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935259b2f3f03414883782343d06a9f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 37a59f15a2bacf34c802b8e4fc051535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToDestroy: -10
-  isDestructible: 0
+  isDestructible: 1
   ignoreScroll: 1
