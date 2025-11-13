@@ -14,6 +14,9 @@ public class MagnetBird : MonoBehaviour
     private MagnetState currentState = MagnetState.Falling;
     private GameObject targetInsect;
 
+    [Header("References")]
+    [SerializeField] private Animator magnetBirdAnimator;
+
     [Header("Movement Before Collection")]
     [SerializeField] private float fallSpeed = 3f;
     [SerializeField] private float sideMovementAmplitude = 1f;
@@ -47,6 +50,13 @@ public class MagnetBird : MonoBehaviour
         {
             playerTransform = player.transform;
         }
+
+        //var playerPauseSensitiveAnimator = player.GetComponent<PauseSensitiveAnimator>();
+
+        //if (playerPauseSensitiveAnimator != null)
+        //{
+        //    magnetBirdAnimator.speed = playerPauseSensitiveAnimator.GetCurrentAnimationSpeed();
+        //}
     }
 
     private void Update()

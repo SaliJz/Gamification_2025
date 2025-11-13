@@ -257,13 +257,14 @@ public class PlayerController : MonoBehaviour
         if (spriteRenderer != null)
         {
             Color originalColor = spriteRenderer.color;
+            Color blinkColor = Color.red;
             float timer = 0f;
 
             while (timer < invincibilityDuration)
             {
                 // Alterna la opacidad para crear el parpadeo
                 float alpha = Mathf.PingPong(Time.time * 15f, 1.0f) < 0.5f ? 0.3f : 1.0f;
-                spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+                spriteRenderer.color = new Color(blinkColor.r, blinkColor.g, blinkColor.b, alpha);
 
                 timer += Time.deltaTime;
                 yield return null;

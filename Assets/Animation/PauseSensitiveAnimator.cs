@@ -45,4 +45,21 @@ public class PauseSensitiveAnimator : MonoBehaviour
 
         Debug.Log($"[PauseSensitiveAnimator] Paused: {paused} | Animator Speed: {anim.speed}");
     }
+
+    public void UpdateAnimationSpeed(float speedMultiplier)
+    {
+        anim.speed += speedMultiplier;
+        Debug.Log($"[PauseSensitiveAnimator] Updated Animation Speed Multiplier: {speedMultiplier} | New Speed: {anim.speed}");
+    }
+
+    public void ResetAnimationSpeed()
+    {
+        anim.speed = 1f;
+        Debug.Log("[PauseSensitiveAnimator] Animation Speed Reset to 1");
+    }
+
+    public float GetCurrentAnimationSpeed()
+    {
+        return anim.speed;
+    }
 }

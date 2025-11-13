@@ -37,31 +37,34 @@ public class TutorialManager : MonoBehaviour
     #region Tutorial Dialogues
     private readonly Dictionary<string, string> tutorialDialogues = new Dictionary<string, string>()
     {
+        // Introducción
+        {"inicio", "¡Hola! Soy la gaviota Franklin, y necesito tu ayuda para sobrevivir."},
+
         // Movimiento
-        {"movement", "¡Bienvenido! Usa el joystick al tocar en la pantalla para moverte y esquivar los peligros. ¡Vamos a practicar!"},
+        {"movement", "Desliza tu dedo en la dirección que quieras que vuele. Aparecerá un círculo en la pantalla para movernos."},
         
         // Hazards
         {"toxiccloud_intro", "¡Cuidado! Esta es una Nube Tóxica. Se mueve lentamente de izquierda o derecha pero causa daño continuo."},
-        {"toxiccloud_advice", "Consejo: Mantente alejado de las nubes. No puedes destruirlas, solo esquivarlas."},
+        {"toxiccloud_advice", "Consejo: Mantengamonos alejados de las nubes. No pueden destruirse, solo esquivarse."},
 
         {"wildfire_intro", "¡Atención! Esta es una Bola de Fuego. ¡Explota en múltiples direcciones!"},
-        {"wildfire_advice", "Consejo: Mantén distancia cuando veas una. Explota después de un breve tiempo."},
+        {"wildfire_advice", "Consejo: Mantengamonos a distancia cuando se vea una. Explota después de un breve tiempo."},
 
-        {"acidrain_intro", "¡Alerta! Una Nube de Lluvia Ácida aparece desde arriba."},
-        {"acidrain_advice", "Consejo: Observa dónde caen las gotas y muévete hacia los espacios seguros."},
+        {"acidrain_intro", "¡Alerta! Una nube de tormenta producto de la contaminación lumínica aparece desde arriba."},
+        {"acidrain_advice", "Consejo: Observemos dónde caen los rayos y movamonos hacia los espacios seguros."},
         
         // Collectibles
-        {"flockbird_intro", "¡Mira! Otras aves se unen a ti. Forman una bandada protectora."},
-        {"flockbird_advice", "Cada ave en tu bandada puede absorber daño. Uno para todos y todos para uno. ¡Recógelas todas!"},
+        {"flockbird_intro", "¡Mira! Otras aves vienen a ayudarnos. Juntas formamos una bandada protectora."},
+        {"flockbird_advice", "Cada ave en nuestra bandada puede recibir daño por nosotros. ¡Recojamos todas las que podamos!"},
 
         {"insect_intro", "¡Insectos! Son tu alimento y te dan puntos extras."},
         {"insect_advice", "Cada insecto vale +10 puntos. ¡Recoge todos los que puedas!"},
 
-        {"magnetbird_intro", "¡Ave Imán! Te ayudará a recolectar insectos automáticamente."},
+        {"magnetbird_intro", "¡Ave Imán! Nos ayudará a recolectar insectos automáticamente."},
         {"magnetbird_advice", "Cuando la recojas, orbitará a tu alrededor y recogerá insectos cercanos."},
         
         // Final
-        {"tutorial_complete", "¡Tutorial completado! Ya conoces todos los elementos del juego. ¡Buena suerte!"}
+        {"tutorial_complete", "¡Ya aprendiste lo necesario! Tu misión es ayudarme a resistir y cuidar los humedales. ¡Vamos a volar!"}
     };
     #endregion
 
@@ -140,6 +143,7 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator ShowMovementTutorial()
     {
         PauseGame();
+        yield return StartCoroutine(ShowDialogue("inicio"));
         yield return StartCoroutine(ShowDialogue("movement"));
         ResumeGame();
 

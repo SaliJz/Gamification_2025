@@ -248,6 +248,13 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(true);
+        }
+
         // Activar panel 
         if (mainMenuPanel != null)
         {
@@ -314,6 +321,13 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
+
         // Reanudar managers
         ResumeAllManagers();
 
@@ -323,6 +337,13 @@ public class GameManager : MonoBehaviour
 
     private void StopGameplay()
     {
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(true);
+        }
+
         // Pausar managers cuando se sale del gameplay
         PauseAllManagers();
     }
@@ -330,6 +351,13 @@ public class GameManager : MonoBehaviour
     private void UpdateGameplay()
     {
         CurrentScrollSpeed += speedIncreaseRate * Time.deltaTime;
+
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        //if (pauseSensitiveAnimator != null)
+        //{
+        //    pauseSensitiveAnimator.UpdateAnimationSpeed(speedIncreaseRate);
+        //}
 
         float distanceThisFrame = CurrentScrollSpeed * Time.deltaTime;
         distanceTraveled += distanceThisFrame;
@@ -356,6 +384,13 @@ public class GameManager : MonoBehaviour
         flockSize = 1;
         CurrentScrollSpeed = initialScrollSpeed;
 
+        //var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        //if (pauseSensitiveAnimator != null)
+        //{
+        //    pauseSensitiveAnimator.ResetAnimationSpeed();
+        //}
+
         PlayerController player = FindAnyObjectByType<PlayerController>();
         if (player != null)
         {
@@ -378,6 +413,18 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
 
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(true);
+        }
+
+        if (gameplayHUD != null)
+        {
+            gameplayHUD.SetActive(false);
+        }
+
         if (pausePanel != null)
         {
             pausePanel.SetActive(true);
@@ -389,6 +436,18 @@ public class GameManager : MonoBehaviour
 
     private void HidePauseMenu()
     {
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
+
+        if (gameplayHUD != null)
+        {
+            gameplayHUD.SetActive(true);
+        }
+
         if (pausePanel != null)
         {
             pausePanel.SetActive(false);
@@ -399,6 +458,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("[GameManager] Resume button clicked!");
         Time.timeScale = 1f;
+
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
+
         ChangeState(GameState.Playing);
         OnResume?.Invoke();
     }
@@ -407,6 +474,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("[GameManager] Pause => Main Menu clicked!");
         Time.timeScale = 1f;
+
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(true);
+        }
+
         CleanupGameObjects();
         ChangeState(GameState.MainMenu);
     }
@@ -425,6 +500,13 @@ public class GameManager : MonoBehaviour
     private void ShowGameOver()
     {
         Time.timeScale = 0f;
+
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(true);
+        }
 
         if (gameOverPanel != null)
         {
@@ -447,6 +529,13 @@ public class GameManager : MonoBehaviour
 
     private void HideGameOver()
     {
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
+
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
@@ -463,6 +552,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("[GameManager] Restart button clicked!");
         Time.timeScale = 1f;
+
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
+        {
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
 
         if (levelGenerator != null)
         {
@@ -515,6 +611,13 @@ public class GameManager : MonoBehaviour
     {
         if (tutorialManager != null)
         {
+            var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+            if (pauseSensitiveAnimator != null)
+            {
+                pauseSensitiveAnimator.ApplyPause(false);
+            }
+
             if (gameplayHUD != null) gameplayHUD.SetActive(false);
             if (pauseButton != null) pauseButton.gameObject.SetActive(false);
 
