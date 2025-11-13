@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Hazard"))
         {
             TakeDamageFromHazard();
-            Destroy(other.gameObject);
         }
         else if (other.CompareTag("CollectibleBird"))
         {
