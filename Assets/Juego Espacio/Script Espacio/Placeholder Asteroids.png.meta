@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: e1df1e5b44d66244ca2998db51a115de
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1586213096719218894
+    second: Placeholder Asteroids_0
+  - first:
+      213: 4459408736089758443
+    second: Placeholder Asteroids_1
+  - first:
+      213: 5071704804581298822
+    second: Placeholder Asteroids_2
+  - first:
+      213: 7805644819821982679
+    second: Placeholder Asteroids_3
+  - first:
+      213: -8706596831283513348
+    second: Placeholder Asteroids_4
+  - first:
+      213: 5455605394479090803
+    second: Placeholder Asteroids_5
+  - first:
+      213: -2292420303234610502
+    second: Placeholder Asteroids_6
+  - first:
+      213: -5543927963468366385
+    second: Placeholder Asteroids_7
+  - first:
+      213: 4818695219774708673
+    second: Placeholder Asteroids_8
+  - first:
+      213: -6588898929719383056
+    second: Placeholder Asteroids_9
+  - first:
+      213: 9040597338784557884
+    second: Placeholder Asteroids_10
+  - first:
+      213: 5121376504539650057
+    second: Placeholder Asteroids_11
+  - first:
+      213: 835186784560655188
+    second: Placeholder Asteroids_12
+  - first:
+      213: -5958993156563272965
+    second: Placeholder Asteroids_13
+  - first:
+      213: 2902850774879453504
+    second: Placeholder Asteroids_14
+  - first:
+      213: -7061435395310850734
+    second: Placeholder Asteroids_15
+  - first:
+      213: -4963229479492487012
+    second: Placeholder Asteroids_16
+  - first:
+      213: 8494385416285519122
+    second: Placeholder Asteroids_17
+  - first:
+      213: -5510089039542249954
+    second: Placeholder Asteroids_18
+  - first:
+      213: 3371680699649584979
+    second: Placeholder Asteroids_19
+  - first:
+      213: -5391062205361289578
+    second: Placeholder Asteroids_20
+  - first:
+      213: 6985542547492770361
+    second: Placeholder Asteroids_21
+  - first:
+      213: 6963699860824932564
+    second: Placeholder Asteroids_22
+  - first:
+      213: -7121995812729688614
+    second: Placeholder Asteroids_23
+  - first:
+      213: 14727111600729111
+    second: Placeholder Asteroids_24
+  - first:
+      213: -6857331224067905757
+    second: Placeholder Asteroids_25
+  - first:
+      213: 8564724846699666534
+    second: Placeholder Asteroids_26
+  - first:
+      213: -8516649551490752269
+    second: Placeholder Asteroids_27
+  - first:
+      213: -558215425347009125
+    second: Placeholder Asteroids_28
+  - first:
+      213: 5392359847391790177
+    second: Placeholder Asteroids_29
+  - first:
+      213: 7933987807435163422
+    second: Placeholder Asteroids_30
+  - first:
+      213: -8549399439103991941
+    second: Placeholder Asteroids_31
+  - first:
+      213: 1502235879522549063
+    second: Placeholder Asteroids_32
+  - first:
+      213: 1211106350978983290
+    second: Placeholder Asteroids_33
+  - first:
+      213: -4047297358567733157
+    second: Placeholder Asteroids_34
+  - first:
+      213: 1455235803841710665
+    second: Placeholder Asteroids_35
+  - first:
+      213: -918305283244327599
+    second: Placeholder Asteroids_36
+  - first:
+      213: 1694553708628560104
+    second: Placeholder Asteroids_37
+  - first:
+      213: -3849356628390049816
+    second: Placeholder Asteroids_38
+  - first:
+      213: 953098706415814983
+    second: Placeholder Asteroids_39
+  - first:
+      213: -5616269810393143672
+    second: Placeholder Asteroids_40
+  - first:
+      213: -8370834219917389044
+    second: Placeholder Asteroids_41
+  - first:
+      213: 1852170677199004119
+    second: Placeholder Asteroids_42
+  - first:
+      213: 7185258247297886169
+    second: Placeholder Asteroids_43
+  - first:
+      213: 8160046683939133441
+    second: Placeholder Asteroids_44
+  - first:
+      213: -6389529979864580398
+    second: Placeholder Asteroids_45
+  - first:
+      213: 5730144766602754986
+    second: Placeholder Asteroids_46
+  - first:
+      213: -7461873120108596300
+    second: Placeholder Asteroids_47
+  - first:
+      213: -2952050987740512278
+    second: Placeholder Asteroids_48
+  - first:
+      213: 6251654054397701011
+    second: Placeholder Asteroids_49
+  - first:
+      213: 4899752655230241357
+    second: Placeholder Asteroids_50
+  - first:
+      213: -922332723769014165
+    second: Placeholder Asteroids_51
+  - first:
+      213: -4000031260361860693
+    second: Placeholder Asteroids_52
+  - first:
+      213: -1600553242828201665
+    second: Placeholder Asteroids_53
+  - first:
+      213: 8661554979559712002
+    second: Placeholder Asteroids_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Placeholder Asteroids_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 350
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec87508486c530610800000000000000
+      internalID: 1586213096719218894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3171312ed05e7e143898fbfbd32768f3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Placeholder Asteroids_0: 1586213096719218894
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

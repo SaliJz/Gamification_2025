@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 403d6a102b1cc5445bdb45d128829858
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9006687203271307560
+    second: Placeholder SpaceTextBox_0
+  - first:
+      213: 832782872322404116
+    second: Placeholder SpaceTextBox_1
+  - first:
+      213: 638196936815458407
+    second: Placeholder SpaceTextBox_2
+  - first:
+      213: 1478844188620693047
+    second: Placeholder SpaceTextBox_3
+  - first:
+      213: 5275260768283292518
+    second: Placeholder SpaceTextBox_4
+  - first:
+      213: 8274000798469141762
+    second: Placeholder SpaceTextBox_5
+  - first:
+      213: -3192770284844258608
+    second: Placeholder SpaceTextBox_6
+  - first:
+      213: -1975185023763391945
+    second: Placeholder SpaceTextBox_7
+  - first:
+      213: -7323577577245376619
+    second: Placeholder SpaceTextBox_8
+  - first:
+      213: 5927091326363252082
+    second: Placeholder SpaceTextBox_9
+  - first:
+      213: -7221321440386931904
+    second: Placeholder SpaceTextBox_10
+  - first:
+      213: -4124284780127536936
+    second: Placeholder SpaceTextBox_11
+  - first:
+      213: 8630628005027419091
+    second: Placeholder SpaceTextBox_12
+  - first:
+      213: -7302209981649545659
+    second: Placeholder SpaceTextBox_13
+  - first:
+      213: 6703384518395876746
+    second: Placeholder SpaceTextBox_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Placeholder SpaceTextBox_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 684
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 821fa0aba4e2efc70800000000000000
+      internalID: 9006687203271307560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6ad98bf65c8031246983d3c092aae379
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Placeholder SpaceTextBox_0: 9006687203271307560
+      Placeholder SpaceTextBox_1: 832782872322404116
+      Placeholder SpaceTextBox_10: -7221321440386931904
+      Placeholder SpaceTextBox_11: -4124284780127536936
+      Placeholder SpaceTextBox_12: 8630628005027419091
+      Placeholder SpaceTextBox_13: -7302209981649545659
+      Placeholder SpaceTextBox_14: 6703384518395876746
+      Placeholder SpaceTextBox_2: 638196936815458407
+      Placeholder SpaceTextBox_3: 1478844188620693047
+      Placeholder SpaceTextBox_4: 5275260768283292518
+      Placeholder SpaceTextBox_5: 8274000798469141762
+      Placeholder SpaceTextBox_6: -3192770284844258608
+      Placeholder SpaceTextBox_7: -1975185023763391945
+      Placeholder SpaceTextBox_8: -7323577577245376619
+      Placeholder SpaceTextBox_9: 5927091326363252082
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
