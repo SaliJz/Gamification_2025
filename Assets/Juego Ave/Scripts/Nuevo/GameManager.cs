@@ -110,6 +110,8 @@ public class GameManager : MonoBehaviour
     [Header("Tutorial System")]
     [SerializeField] private bool enableTutorial = true;
     [SerializeField] private TutorialManager tutorialManager;
+    [SerializeField] private bool useTutorialV2 = false;
+    [SerializeField] private TutorialManagerV2 tutorialManagerV2;
     private bool tutorialCompleted = false;
     private const string TUTORIAL_COMPLETED_KEY = "TutorialCompleted";
     public bool TutorialCompleted => tutorialCompleted;
@@ -155,14 +157,13 @@ public class GameManager : MonoBehaviour
     {
         screenWidthInWorldUnits = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
 
-        if (enableTutorial && tutorialManager != null)
+        // Reiniciar tutorial si está habilitado (para pruebas)
+        if (enableTutorial)
         {
             ResetTutorial();
         }
 
         currentState = GameState.MainMenu;
-
-
         InitializeUIState();
     }
 
@@ -609,30 +610,37 @@ public class GameManager : MonoBehaviour
 
     private void StartTutorial()
     {
-        if (tutorialManager != null)
+        var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+
+        if (pauseSensitiveAnimator != null)
         {
-            var pauseSensitiveAnimator = FindAnyObjectByType<PauseSensitiveAnimator>();
+            pauseSensitiveAnimator.ApplyPause(false);
+        }
 
-            if (pauseSensitiveAnimator != null)
-            {
-                pauseSensitiveAnimator.ApplyPause(false);
-            }
+        if (gameplayHUD != null) gameplayHUD.SetActive(false);
+        if (pauseButton != null) pauseButton.gameObject.SetActive(false);
 
-            if (gameplayHUD != null) gameplayHUD.SetActive(false);
-            if (pauseButton != null) pauseButton.gameObject.SetActive(false);
+        PauseAllManagers();
 
-            PauseAllManagers();
+        if (levelGenerator != null)
+        {
+            levelGenerator.enabled = true;
+        }
 
-            if (levelGenerator != null)
-            {
-                levelGenerator.enabled = true;
-            }
-
+        // Selección del Tutorial basado en la configuración
+        if (useTutorialV2 && tutorialManagerV2 != null)
+        {
+            Debug.Log("[GameManager] Iniciando Tutorial V2 (Space Mode)");
+            tutorialManagerV2.StartTutorial();
+        }
+        else if (tutorialManager != null)
+        {
+            Debug.Log("[GameManager] Iniciando Tutorial V1 (Original)");
             tutorialManager.StartTutorial();
         }
         else
         {
-            Debug.LogWarning("[GameManager] TutorialManager no asignado!");
+            Debug.LogWarning("[GameManager] Ningún TutorialManager asignado o configuración inválida.");
             ChangeState(GameState.Playing);
         }
     }
@@ -854,6 +862,11 @@ public class GameManager : MonoBehaviour
             Destroy(projectile.gameObject);
         }
 
+        foreach (var projectile in FindObjectsByType<Projectile>(FindObjectsSortMode.None))
+        {
+            Destroy(projectile.gameObject);
+        }
+
         GameObject[] collectibles = GameObject.FindGameObjectsWithTag("CollectibleBird");
         foreach (var obj in collectibles)
         {
@@ -862,6 +875,13 @@ public class GameManager : MonoBehaviour
 
         GameObject[] insects = GameObject.FindGameObjectsWithTag("Insect");
         foreach (var obj in insects)
+        {
+            Destroy(obj);
+        }
+
+        // Cleanup Guns
+        GameObject[] guns = GameObject.FindGameObjectsWithTag("CollectibleGun");
+        foreach (var obj in guns)
         {
             Destroy(obj);
         }

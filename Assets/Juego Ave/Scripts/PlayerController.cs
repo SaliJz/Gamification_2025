@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Cantidad de vida a recuperar")]
     [SerializeField] private int healAmount = 20;
     private float healTimer = 0f;
+
+    [Header("Sistema de Disparo (Opcional)")]
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
+    private int currentAmmo = 0;
+    private const int MAX_AMMO_PER_PICKUP = 4;
 
     [Header("Barra de Vida")]
     [SerializeField] private GameObject healthBarUI;
@@ -95,6 +102,7 @@ public class PlayerController : MonoBehaviour
         }
 
         HandleMovement();
+        HandleShootingInput();
         UpdateHealthBarVisibility();
         HandlePassiveHealing();
     }
@@ -144,6 +152,71 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Shooting System (Nuevo)
+    private void HandleShootingInput()
+    {
+        if (currentAmmo <= 0) return;
+
+        bool tryShoot = false;
+
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
+            {
+                if (touch.phase == TouchPhase.Began)
+                {
+                    if (!IsPointerOverUIObject(touch.fingerId))
+                    {
+                        tryShoot = true;
+                        break;
+                    }
+                }
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                tryShoot = true;
+            }
+        }
+
+        if (tryShoot)
+        {
+            Shoot();
+        }
+    }
+
+    private bool IsPointerOverUIObject(int fingerId)
+    {
+        if (EventSystem.current == null) return false;
+
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = Input.GetTouch(fingerId).position;
+
+        System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+        return results.Count > 0;
+    }
+
+    private void Shoot()
+    {
+        if (projectilePrefab == null) return;
+
+        Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+        currentAmmo--;
+        Debug.Log($"¡Disparo! Munición restante: {currentAmmo}");
+    }
+
+    public void CollectGun()
+    {
+        currentAmmo = MAX_AMMO_PER_PICKUP;
+        Debug.Log("¡Arma obtenida! 4 disparos disponibles.");
+    }
+    #endregion
+
     #region Damage System
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -165,6 +238,11 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Insect"))
         {
             CollectInsect();
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("CollectibleGun"))
+        {
+            CollectGun();
             Destroy(other.gameObject);
         }
     }
@@ -381,6 +459,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         speed = baseSpeed;
         isSlowed = false;
+        currentAmmo = 0;
 
         transform.position = startPosition;
 
@@ -410,6 +489,10 @@ public class PlayerController : MonoBehaviour
 
         ShowHealthBar();
         UpdateHealthBar();
+    }
+    public int GetAmmoCount()
+    {
+        return currentAmmo;
     }
     #endregion
 }

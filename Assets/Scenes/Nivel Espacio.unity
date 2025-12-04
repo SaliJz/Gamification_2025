@@ -2535,7 +2535,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 588156782}
   dialogueText: {fileID: 760693777}
   continueButton: {fileID: 895379202}
-  franklinBirdSprite: {fileID: 610723293}
+  franklinBirdSprite: {fileID: 0}
   textSpeed: 0.05
   autoAdvance: 0
   autoAdvanceDelay: 3
@@ -4351,6 +4351,8 @@ MonoBehaviour:
   birdProtectionHealth: 10
   timeToHeal: 20
   healAmount: 5
+  projectilePrefab: {fileID: 4329328151786280197, guid: 2286ef0df3af9e04ebb16840aa6d6cd9, type: 3}
+  firePoint: {fileID: 1081869826}
   healthBarUI: {fileID: 706737552}
   healthSlider: {fileID: 625734616}
   healthFillImage: {fileID: 1138935006}
@@ -4425,6 +4427,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 706737553}
+  - {fileID: 1081869826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &988774066
@@ -4627,6 +4630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012344566}
   - component: {fileID: 1012344565}
+  - component: {fileID: 1012344567}
   m_Layer: 0
   m_Name: TutorialManager
   m_TagString: Untagged
@@ -4648,12 +4652,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBetweenSteps: 1.5
   dialogueBox: {fileID: 588156784}
-  toxicCloudPrefab: {fileID: 3804478767220637158, guid: eef6b2ded9172c645a5bf6b33b7c2242, type: 3}
-  wildfirePrefab: {fileID: 2137016577145196782, guid: f158b293a9c5d624aa0ece476c454f58, type: 3}
-  acidRainPrefab: {fileID: 8452718712977919726, guid: 13561a02d09a7494e80f6466cdbf5e87, type: 3}
-  flockBirdPrefab: {fileID: 5598223330627366575, guid: 0751ced7795a45749bdb6847143e494f, type: 3}
-  insectPrefab: {fileID: 3523403895734471968, guid: 2bae0b9801249234fa93cb297004f9e3, type: 3}
-  magnetBirdPrefab: {fileID: 4329328151786280197, guid: cf96862fc7de75643883d05f6604ac86, type: 3}
+  toxicCloudPrefab: {fileID: 3804478767220637158, guid: beb606280c42dd84bb9ad06f276ffc40, type: 3}
+  wildfirePrefab: {fileID: 2137016577145196782, guid: 102ef84599f5ce748bef5b78127ee53f, type: 3}
+  acidRainPrefab: {fileID: 8452718712977919726, guid: cce4eafdbe37a8d4fb426d5a086b424f, type: 3}
+  flockBirdPrefab: {fileID: 5598223330627366575, guid: 1c6b624e5a9064e41bd741db8c849ff4, type: 3}
+  insectPrefab: {fileID: 3523403895734471968, guid: e84b77bd6363e54498cb0f1268c31121, type: 3}
+  magnetBirdPrefab: {fileID: 4329328151786280197, guid: 398a3e2508170264887b835eeef95c66, type: 3}
   hazardLifetime: 10
   topSpawnPosition: {x: 0, y: 10}
   leftSpawnPosition: {x: -8, y: 5}
@@ -4672,6 +4676,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012344567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012344564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a084a1ce0dbd050498b99f12171a7661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenSteps: 1.5
+  dialogueBox: {fileID: 588156784}
+  meteorPrefab: {fileID: 3804478767220637158, guid: beb606280c42dd84bb9ad06f276ffc40, type: 3}
+  explosiveMeteorPrefab: {fileID: 2137016577145196782, guid: 102ef84599f5ce748bef5b78127ee53f, type: 3}
+  alienShipPrefab: {fileID: 8452718712977919726, guid: cce4eafdbe37a8d4fb426d5a086b424f, type: 3}
+  satellitePrefab: {fileID: 5598223330627366575, guid: 1c6b624e5a9064e41bd741db8c849ff4, type: 3}
+  fuelPrefab: {fileID: 3523403895734471968, guid: e84b77bd6363e54498cb0f1268c31121, type: 3}
+  supportShipPrefab: {fileID: 4329328151786280197, guid: 398a3e2508170264887b835eeef95c66, type: 3}
+  spaceGunPrefab: {fileID: 5598223330627366575, guid: c758c09959ac4854c9deeab1ca7c07f3, type: 3}
+  hazardLifetime: 10
+  topSpawnPosition: {x: 0, y: 10}
+  leftSpawnPosition: {x: -8, y: 5}
 --- !u!1 &1031899253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4746,6 +4774,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1081869825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081869826}
+  m_Layer: 3
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1081869826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081869825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 988774065}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118273699
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,6 +7991,12 @@ MonoBehaviour:
     minTimeBetweenSpawns: 15
     maxTimeBetweenSpawns: 30
     nextSpawnTime: 0
+  - name: Arma espacial
+    prefab: {fileID: 5598223330627366575, guid: c758c09959ac4854c9deeab1ca7c07f3, type: 3}
+    spawnChance: 0.5
+    minTimeBetweenSpawns: 10
+    maxTimeBetweenSpawns: 20
+    nextSpawnTime: 0
 --- !u!4 &1957432702
 Transform:
   m_ObjectHideFlags: 0
@@ -8245,8 +8310,10 @@ MonoBehaviour:
   gameOverDialogue: {fileID: 0}
   scoreText: {fileID: 2072992360}
   flockSizeText: {fileID: 1214396884}
-  enableTutorial: 0
+  enableTutorial: 1
   tutorialManager: {fileID: 1012344565}
+  useTutorialV2: 1
+  tutorialManagerV2: {fileID: 1012344567}
   transitionDuration: 2
   slideDownOffset: -4320
   hazardSpawner: {fileID: 335239743}

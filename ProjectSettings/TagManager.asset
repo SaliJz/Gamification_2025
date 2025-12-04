@@ -8,6 +8,8 @@ TagManager:
   - CollectibleBird
   - Insect
   - MagnetBird
+  - CollectibleGun
+  - Projectile
   layers:
   - Default
   - TransparentFX
