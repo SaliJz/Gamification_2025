@@ -8310,7 +8310,7 @@ MonoBehaviour:
   gameOverDialogue: {fileID: 0}
   scoreText: {fileID: 2072992360}
   flockSizeText: {fileID: 1214396884}
-  enableTutorial: 1
+  enableTutorial: 0
   tutorialManager: {fileID: 1012344565}
   useTutorialV2: 1
   tutorialManagerV2: {fileID: 1012344567}
