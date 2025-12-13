@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Sistema de Vida")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private int birdProtectionHealth = 5; // Vida que absorbe cada ave
+    [SerializeField] private int birdProtectionHealth = 5;
     private int currentHealth;
 
     [Header("Sistema de Curacion")]
